@@ -3,6 +3,7 @@ package co.edu.unbosque.view;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -10,26 +11,35 @@ public class WelcomePanel extends JPanel{
 	
 	private final String COMMAND_SELECT_FILE = "SELCT_FILE";
 	
-	private JTextField txtWelcome;
-	private JButton botonSeleccionArchivo;
+	private JLabel labelWelcome;
+	private JButton buttonSelectFile;
 	
 	public WelcomePanel() {
 		setLayout(new GridLayout(2, 1));
-		txtWelcome = new JTextField("Welcome");
-		botonSeleccionArchivo = new JButton("Select file");
-		add(txtWelcome);
-		add(botonSeleccionArchivo);
+		labelWelcome = new JLabel("Welcome");
+		buttonSelectFile = new JButton("Select file");
+		this.add(labelWelcome);
+		this.add(buttonSelectFile);
 		
-		botonSeleccionArchivo.setActionCommand(COMMAND_SELECT_FILE);
+		buttonSelectFile.setActionCommand(COMMAND_SELECT_FILE);
 	}
 
-	public JButton getBotonSeleccionArchivo() {
-		return botonSeleccionArchivo;
+	public JButton getButtonSelectFile() {
+		return buttonSelectFile;
 		
 	}
 
-	public void setBotonSeleccionArchivo(JButton botonSeleccionArchivo) {
-		this.botonSeleccionArchivo = botonSeleccionArchivo;
+	public void setButtonSelectFile(JButton buttonSelectFile) {
+		this.buttonSelectFile = buttonSelectFile;
 	}
+
+	public JLabel getLabelWelcome() {
+		return labelWelcome;
+	}
+
+	public void setLabelWelcome(JLabel labelWelcome) {
+		this.labelWelcome = labelWelcome;
+	}
+	
 	
 }

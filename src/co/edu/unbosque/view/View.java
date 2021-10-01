@@ -3,13 +3,17 @@ package co.edu.unbosque.view;
 import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JSplitPane;
 
 import co.edu.unbosque.controller.Controller;
 
 public class View extends JFrame{
 
 	private WelcomePanel welcomePanel;
-	
+	private SelectionPanel selectionPanel;
+	private JSplitPane splitPane;
+
 	public View (Controller controller) {
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setLayout(new BorderLayout());
@@ -20,12 +24,20 @@ public class View extends JFrame{
 		this.setVisible(true);
 		
 		welcomePanel = new WelcomePanel();
-		welcomePanel.setVisible(false);
-		this.add(welcomePanel);
+		selectionPanel = new SelectionPanel();
+		splitPane = new JSplitPane();
+		splitPane.setEnabled(false);
+		splitPane.setRightComponent(selectionPanel);
+		splitPane.setLeftComponent(welcomePanel);
+		getContentPane().add(splitPane);
+		asignarOyentes(controller);
+		repaint();
+		revalidate();
 	}
 	
 	public void asignarOyentes(Controller controller) {
-		welcomePanel.getBotonSeleccionArchivo().addActionListener(controller);
+		welcomePanel.getButtonSelectFile().addActionListener(controller);
+		selectionPanel.getButtonConfirm().addActionListener(controller);
 
 	}
 
@@ -35,6 +47,14 @@ public class View extends JFrame{
 
 	public void setWelcomePanel(WelcomePanel welcomePanel) {
 		this.welcomePanel = welcomePanel;
+	}
+
+	public SelectionPanel getSelectionPanel() {
+		return selectionPanel;
+	}
+
+	public void setSelectionPanel(SelectionPanel selectionPanel) {
+		this.selectionPanel = selectionPanel;
 	}
 	
 	
