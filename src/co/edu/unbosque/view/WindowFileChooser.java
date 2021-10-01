@@ -20,8 +20,6 @@ public class WindowFileChooser extends JPanel {
 		jf.showOpenDialog(WindowFileChooser.this);
 		filter = new FileNameExtensionFilter("TEXT FILES", "txt", "text");
 		jf.setFileFilter(filter);
-		this.checkFile();
-
 	}
 
 	public File checkFile() {
