@@ -40,6 +40,11 @@ public class WelcomePanel extends JPanel{
 	public void setLabelWelcome(JLabel labelWelcome) {
 		this.labelWelcome = labelWelcome;
 	}
+
+	public String getCOMMAND_SELECT_FILE() {
+		return COMMAND_SELECT_FILE;
+	}
+	
 	
 	
 }

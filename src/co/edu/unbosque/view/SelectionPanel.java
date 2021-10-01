@@ -68,6 +68,11 @@ public class SelectionPanel extends JPanel{
 	public void setButtonConfirm(JButton buttonConfirm) {
 		this.buttonConfirm = buttonConfirm;
 	}
-	
 
+	public String getCOMMAND_CONFIRM() {
+		return COMMAND_CONFIRM;
+	}
+	
+	
+	
 }

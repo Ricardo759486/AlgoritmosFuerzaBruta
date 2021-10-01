@@ -11,21 +11,21 @@ public class Controller implements ActionListener {
 
 	private View view;
 	private Mundo mundo;
-	WindowFileChooser tf;
+	
 
 	public Controller() {
 		view = new View(this);
 		mundo = new Mundo();
-		// tf = new WindowFileChooser();
-//		mundo.cargarFile(tf.checkFile());
-//		mundo.busquedaBM("dragon");
-//		mundo.busquedaKMP("password");
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
 		String command = e.getActionCommand();
+		
+		if(command.equals(view.getWelcomePanel().getCOMMAND_SELECT_FILE())) {
+			WindowFileChooser tf = new WindowFileChooser();
+			mundo.cargarFile(tf.checkFile());
+		}
 
 	}
 
