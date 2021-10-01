@@ -9,7 +9,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class WindowFileChooser extends JPanel {
 	private JFileChooser jf;
 	private FileNameExtensionFilter filter;
-//
+
 //	public static void main(String... args) {
 //		WindowFileChooser tf = new WindowFileChooser();
 //

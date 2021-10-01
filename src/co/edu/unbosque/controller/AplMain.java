@@ -18,7 +18,6 @@ public class AplMain {
 		} catch (InstantiationException e) {
 		} catch (IllegalAccessException e) {
 		}
-		
-		//Controller control = new Controller();
+//		Controller control = new Controller();
 	}
 }
