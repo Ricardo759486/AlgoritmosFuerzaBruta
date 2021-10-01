@@ -8,11 +8,11 @@ import co.edu.unbosque.model.*;
 public class Controller implements ActionListener {
 	
 	private View principal;
-	private Algoritmo algoritmo;
+	private Algorithm algoritmo;
 	
 	public Controller() {
 		principal= new View();
-		algoritmo= new Algoritmo();
+		algoritmo= new Algorithm();
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
