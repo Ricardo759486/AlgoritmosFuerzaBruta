@@ -70,6 +70,8 @@ public class Algorithm {
             right[pat.charAt(j)] = j;
         }
     }
+	
+	//djnujndowefnoiwefnwe
  
     public static int Search2(String txt, String pat, int[] right) {
         int M = txt.length();
