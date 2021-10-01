@@ -20,6 +20,13 @@ public class Algorithm {
         System.out.println(Search2(txt, pat, right));
     }
 	
+//	public static void main(String[] args) {
+//		String str="aaabaa";
+//		String obj="aaba";
+//		int[] next=getNext(obj);
+//		System.out.println(kmp(str, obj));
+//	}
+	
 	
 	
 	//------------------------------------KMP-----------------------------------------------------
@@ -61,6 +68,42 @@ public class Algorithm {
 	}
 	
 	//------------------------------------------------------------------------------------------------------------------------
+	
+	public static int kmp(String str,String tar){
+		int[] next=getNext(tar);
+		for (int i = 0,j=0; i < str.length(); i++) {
+			while(j>0&&str.charAt(i)!=tar.charAt(j)){
+				j=next[j-1];
+			}
+			if(str.charAt(i)==tar.charAt(j)){
+				j++;
+			}
+			if(j==tar.length()){
+				return i-j+1;
+			}
+		}
+		return -1;
+	}
+	public static int[] getNext(String tar){
+		int[] next=new int[tar.length()];
+		int k=0;
+		next[0]=0;
+		for (int i = 1; i < next.length; i++) {
+			while(k>0&&tar.charAt(k)!=tar.charAt(i)){
+				k=next[k-1];
+			}
+			if(tar.charAt(k)==tar.charAt(i)){
+				k++;
+			}
+			next[i]=k;
+		}
+		return next;
+	}
+	
+	
+	
+	
+	//--------------------------------------------------BM----------------------------------------------------------------------
 	
 	public static void getRight(String pat, int[] right) {
         for (int i = 0; i < 256; i++) {
