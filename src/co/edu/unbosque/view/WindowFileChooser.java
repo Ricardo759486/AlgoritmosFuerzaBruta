@@ -38,4 +38,22 @@ public class WindowFileChooser extends JPanel {
 	public void printWarningMessage(String m) {
 		JOptionPane.showMessageDialog(null, m, "Mensaje advertencia", JOptionPane.WARNING_MESSAGE);
 	}
+
+	public JFileChooser getJf() {
+		return jf;
+	}
+
+	public void setJf(JFileChooser jf) {
+		this.jf = jf;
+	}
+
+	public FileNameExtensionFilter getFilter() {
+		return filter;
+	}
+
+	public void setFilter(FileNameExtensionFilter filter) {
+		this.filter = filter;
+	}
+	
+	
 }
