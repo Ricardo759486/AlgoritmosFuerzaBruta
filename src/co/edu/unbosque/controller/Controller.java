@@ -7,11 +7,11 @@ import co.edu.unbosque.model.*;
 
 public class Controller implements ActionListener {
 	
-	private View principal;
+	private View view;
 	private Algorithm algoritmo;
 	
 	public Controller() {
-		principal= new View();
+		view= new View(this);
 		algoritmo= new Algorithm();
 	}
 	@Override
