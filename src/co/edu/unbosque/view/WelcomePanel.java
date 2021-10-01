@@ -25,6 +25,7 @@ public class WelcomePanel extends JPanel{
 
 	public JButton getBotonSeleccionArchivo() {
 		return botonSeleccionArchivo;
+		
 	}
 
 	public void setBotonSeleccionArchivo(JButton botonSeleccionArchivo) {
