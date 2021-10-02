@@ -1,6 +1,7 @@
 package co.edu.unbosque.view;
 
 import java.awt.BorderLayout;
+import java.io.File;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -44,9 +45,16 @@ public class View extends JFrame{
 		showPanel.getButtonBack().addActionListener(controller);
 
 	}
+	public File conectarFileChooser() {
+		WindowFileChooser tf = new WindowFileChooser();
+		File fileChooser=tf.checkFile();
+		this.showInformationMessage("El archivo seleccionado es: "+fileChooser.getName());
+		return fileChooser;
+				
+	}
 	
-	public void showErrorMessage(String message) {
-		JOptionPane.showMessageDialog(null, message, "Error", JOptionPane.ERROR_MESSAGE);
+	public void showWarningMessage(String message) {
+		JOptionPane.showMessageDialog(null, message, "Mensaje advertencia", JOptionPane.WARNING_MESSAGE);
 	}
 	
 	public void showInformationMessage(String message) {

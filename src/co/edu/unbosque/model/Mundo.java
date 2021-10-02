@@ -17,19 +17,33 @@ public class Mundo {
 
 	public Mundo() {
 		algorithm = new Algorithm();
+		file = null;
 	}
 
 	public void cargarFile(File file) {
-		archivo = new Archivo(file);
-		alFile = archivo.leerArchivo();
+		this.file = file;
+		if (file != null) {
+			archivo = new Archivo(file);
+			alFile = archivo.leerArchivo();
+		}
 	}
 
 	public String busquedaKMP(String clave) {
-		return "la palabra: " + clave + " esta en la posicion: " + this.algorithm.orKMP(alFile, clave);
+		int pos = this.algorithm.orKMP(alFile, clave);
+		if (pos == -1) {
+			return "La palabra: " + clave + ", no se encuentra en el archivo";
+		} else {
+			return "La palabra: " + clave + ", esta en la posicion: " + this.algorithm.orKMP(alFile, clave);
+		}
 	}
 
 	public String busquedaBM(String clave) {
-		return "la palabra: " + clave + " esta en la posicion: " + this.algorithm.orBM(alFile, clave);
+		int pos = this.algorithm.orBM(alFile, clave);
+		if (pos == -1) {
+			return "La palabra: " + clave + ", no se encuentra en el archivo";
+		} else {
+			return "La palabra: " + clave + ", esta en la posicion: " + this.algorithm.orBM(alFile, clave);
+		}
 	}
 
 	/**

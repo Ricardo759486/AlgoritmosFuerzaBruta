@@ -2,17 +2,6 @@ package co.edu.unbosque.model;
 
 public class Algorithm {
 
-	// KMP
-//	public static void main(String[] args) {
-//		// TODO Auto-generated method stub
-//		String txt = "yuchengxin is good man";
-//		String pat = "is";
-//		int[] next = new int[pat.length()];
-//		getNext(pat, next);
-//		//next[0] = -1;
-//		System.out.println(Search(txt, pat, next));
-//	}
-
 	public int orKMP(String text, String clave) {
 		int[] next = new int[clave.length()];
 		getNext(clave, next);
@@ -20,28 +9,11 @@ public class Algorithm {
 
 	}
 
-	// BM 2
-//	public static void main(String[] args) {
-//        String txt = "THIS IS A BIG TIGER";
-//        String pat = "BIG";
-//        int[] right = new int[256];
-//        getRight(pat, right);
-//        System.out.println(Search2(txt, pat, right));
-//    }
-
 	public int orBM(String text, String clave) {
 		int[] right = new int[256];
 		getRight(clave, right);
 		return Search2(text, clave, right);
 	}
-
-	// KMP 2
-//	public static void main(String[] args) {
-//		String str="aaabaa";
-//		String obj="aaba";
-//		int[] next=getNext(obj);
-//		System.out.println(kmp(str, obj));
-//	}
 
 	// ------------------------------------KMP-----------------------------------------------------
 

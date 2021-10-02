@@ -37,7 +37,7 @@ public class SelectionPanel extends JPanel {
 	public String[] checkInputs() {
 		String[] output = new String[3];
 		output[0] = "0";
-		if (!txtKey.getText().equals("") && !comboTypeAlgorithm.getSelectedItem().equals("Select algorithm")) {
+		if (!txtKey.getText().trim().equals("") && !comboTypeAlgorithm.getSelectedItem().equals("Select algorithm")) {
 			output[1] = txtKey.getText();
 			output[2] = comboTypeAlgorithm.getSelectedItem().toString();
 		} else {
