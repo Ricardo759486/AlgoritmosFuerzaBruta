@@ -41,7 +41,7 @@ public class Algorithm {
 		int a = 0;
 		int i = 0;
 		getRight(clave, right);
-		while (Search2(text, clave, right, i) != 1) {
+		while (Search2(text, clave, right, i) != -1) {
 			message += Search2(text, clave, right, i) + ",";
 			i = Search2(text, clave, right, i) + 1;
 			Search2(text, clave, right, i);
@@ -137,18 +137,18 @@ public class Algorithm {
 		int M = txt.length();
 		int N = pat.length();
 		int skip;
-		for (i = 0; i < M - N; i += skip) {
+		for (int k = i; k < M - N; k += skip) {
 			skip = 0;
 			for (int j = N - 1; j >= 0; j--) {
-				if (pat.charAt(j) != txt.charAt(i + j)) {
-					skip = j - right[txt.charAt(i + j)];
+				if (pat.charAt(j) != txt.charAt(k + j)) {
+					skip = j - right[txt.charAt(k + j)];
 					if (skip < 1)
 						skip = 1;
 					break;
 				}
 			}
 			if (skip == 0)
-				return i;
+				return k;
 		}
 		return -1;
 	}
