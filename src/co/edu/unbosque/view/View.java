@@ -3,6 +3,7 @@ package co.edu.unbosque.view;
 import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 
@@ -12,12 +13,13 @@ public class View extends JFrame{
 
 	private WelcomePanel welcomePanel;
 	private SelectionPanel selectionPanel;
-	private JSplitPane splitPane;
+	private ShowPanel showPanel;
+	private JSplitPane splitPane; 
 
 	public View (Controller controller) {
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setLayout(new BorderLayout());
-		this.setSize(500, 300);
+		this.setSize(600, 300);
 		this.setTitle("Welcome");
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
@@ -25,6 +27,7 @@ public class View extends JFrame{
 		
 		welcomePanel = new WelcomePanel();
 		selectionPanel = new SelectionPanel();
+		showPanel = new ShowPanel();
 		splitPane = new JSplitPane();
 		splitPane.setEnabled(false);
 		splitPane.setRightComponent(selectionPanel);
@@ -38,9 +41,18 @@ public class View extends JFrame{
 	public void asignarOyentes(Controller controller) {
 		welcomePanel.getButtonSelectFile().addActionListener(controller);
 		selectionPanel.getButtonConfirm().addActionListener(controller);
+		showPanel.getButtonBack().addActionListener(controller);
 
 	}
-
+	
+	public void showErrorMessage(String message) {
+		JOptionPane.showMessageDialog(null, message, "Error", JOptionPane.ERROR_MESSAGE);
+	}
+	
+	public void showInformationMessage(String message) {
+		JOptionPane.showMessageDialog(null, message, "Information", JOptionPane.INFORMATION_MESSAGE);
+	}
+	
 	public WelcomePanel getWelcomePanel() {
 		return welcomePanel;
 	}
@@ -55,6 +67,22 @@ public class View extends JFrame{
 
 	public void setSelectionPanel(SelectionPanel selectionPanel) {
 		this.selectionPanel = selectionPanel;
+	}
+
+	public ShowPanel getShowPanel() {
+		return showPanel;
+	}
+
+	public void setShowPanel(ShowPanel showPanel) {
+		this.showPanel = showPanel;
+	}
+
+	public JSplitPane getSplitPane() {
+		return splitPane;
+	}
+
+	public void setSplitPane(JSplitPane splitPane) {
+		this.splitPane = splitPane;
 	}
 	
 	

@@ -24,12 +24,12 @@ public class Mundo {
 		alFile = archivo.leerArchivo();
 	}
 
-	public void busquedaKMP(String clave) {
-		System.out.println(this.algorithm.orKMP(alFile, clave));
+	public String busquedaKMP(String clave) {
+		return "la palabra: " + clave + " esta en la posicion: " + this.algorithm.orKMP(alFile, clave);
 	}
 
-	public void busquedaBM(String clave) {
-		System.out.println("la palabra: " + clave + " esta en la posicion: " +  this.algorithm.orBM(alFile, clave));
+	public String busquedaBM(String clave) {
+		return "la palabra: " + clave + " esta en la posicion: " + this.algorithm.orBM(alFile, clave);
 	}
 
 	/**
