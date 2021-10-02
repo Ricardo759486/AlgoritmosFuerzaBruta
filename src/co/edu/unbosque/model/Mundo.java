@@ -28,22 +28,9 @@ public class Mundo {
 		}
 	}
 
-	public String busquedaKMP(String clave) {
-		int pos = this.algorithm.orKMP(alFile, clave);
-		if (pos == -1) {
-			return "La palabra: " + clave + ", no se encuentra en el archivo";
-		} else {
-			return "La palabra: " + clave + ", esta en la posicion: " + this.algorithm.orKMP(alFile, clave);
-		}
-	}
-
-	public String busquedaBM(String clave) {
-		int pos = this.algorithm.orBM(alFile, clave);
-		if (pos == -1) {
-			return "La palabra: " + clave + ", no se encuentra en el archivo";
-		} else {
-			return "La palabra: " + clave + ", esta en la posicion: " + this.algorithm.orBM(alFile, clave);
-		}
+	public String busqueda(String clave, String algorithm) {
+		String pos = this.algorithm.cutText(alFile, clave, algorithm);
+		return pos;
 	}
 
 	/**

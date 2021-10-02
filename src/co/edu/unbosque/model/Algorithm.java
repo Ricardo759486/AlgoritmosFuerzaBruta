@@ -1,18 +1,53 @@
 package co.edu.unbosque.model;
 
+import java.util.Iterator;
+
 public class Algorithm {
 
-	public int orKMP(String text, String clave) {
+	public String orKMP(String text, String clave) {
+		String message = "";
+		int a = 0;
 		int[] next = new int[clave.length()];
 		getNext(clave, next);
-		return Search(text, clave, next);
+		int i = 0;
+		while (Search(text, clave, next, i) != -1) {
+			message += Search(text, clave, next, i) + ",";
+			i = Search(text, clave, next, i) + 1;
+			Search(text, clave, next, i);
+			a++;
+		}
+		return a + "," + message;
 
 	}
 
-	public int orBM(String text, String clave) {
+	public String cutText(String text, String clave, String algorithm) {
+		String message = "";
+		if (algorithm.equals("KMP")) {
+			String[] array = orKMP(text, clave).split(",");
+			message = text.replace(clave, "*" + clave + "*") + "\n" + "\n" + clave + " se repite " + array[0]
+					+ " veces";
+		} else if (algorithm.equals("BM")) {
+			String[] array = orBM(text, clave).split(",");
+			message = text.replace(clave, "*" + clave + "*") + "\n" + "\n" + clave + " se repite " + array[0]
+					+ " veces";
+		}
+
+		return message;
+	}
+
+	public String orBM(String text, String clave) {
 		int[] right = new int[256];
+		String message = "";
+		int a = 0;
+		int i = 0;
 		getRight(clave, right);
-		return Search2(text, clave, right);
+		while (Search2(text, clave, right, i) != 1) {
+			message += Search2(text, clave, right, i) + ",";
+			i = Search2(text, clave, right, i) + 1;
+			Search2(text, clave, right, i);
+			a++;
+		}
+		return a + "," + message;
 	}
 
 	// ------------------------------------KMP-----------------------------------------------------
@@ -35,10 +70,10 @@ public class Algorithm {
 		return next;
 	}
 
-	public int Search(String txt, String pat, int[] next) {
+	public int Search(String txt, String pat, int[] next, int i) {
 		int M = txt.length();
 		int N = pat.length();
-		int i = 0, j = 0;
+		int j = 0;
 		while (i < M && j < N) {
 			if (j == -1 || txt.charAt(i) == pat.charAt(j)) {
 				j++;
@@ -98,11 +133,11 @@ public class Algorithm {
 		}
 	}
 
-	public int Search2(String txt, String pat, int[] right) {
+	public int Search2(String txt, String pat, int[] right, int i) {
 		int M = txt.length();
 		int N = pat.length();
 		int skip;
-		for (int i = 0; i < M - N; i += skip) {
+		for (i = 0; i < M - N; i += skip) {
 			skip = 0;
 			for (int j = N - 1; j >= 0; j--) {
 				if (pat.charAt(j) != txt.charAt(i + j)) {

@@ -1,5 +1,6 @@
 package co.edu.unbosque.controller;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -28,6 +29,7 @@ public class Controller implements ActionListener {
 		}
 		if (command.equals(view.getShowPanel().getCOMMAND_BACK())) {
 			view.getSplitPane().setRightComponent(view.getSelectionPanel());
+			view.getSelectionPanel().getTxtKey().setText("");
 		}
 
 	}
@@ -36,13 +38,8 @@ public class Controller implements ActionListener {
 		String[] inputs = view.getSelectionPanel().checkInputs();
 		if (mundo.getFile() != null) {
 			if (inputs[0].equals("0")) {
-				if (inputs[2].equals("BM")) {
-					view.getShowPanel().getTxtShow().setText(mundo.busquedaBM(inputs[1]));
-					view.getSplitPane().setRightComponent(view.getShowPanel());
-				} else if (inputs[2].equals("KMP")) {
-					view.getShowPanel().getTxtShow().setText(mundo.busquedaKMP(inputs[1]));
-					view.getSplitPane().setRightComponent(view.getShowPanel());
-				}
+				view.getShowPanel().getTxtAreaShow().setText(mundo.busqueda(inputs[1], inputs[2]));
+				view.getSplitPane().setRightComponent(view.getShowPanel());
 			} else {
 				view.showWarningMessage(inputs[1]);
 			}
