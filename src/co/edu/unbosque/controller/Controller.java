@@ -10,11 +10,11 @@ import co.edu.unbosque.model.*;
 public class Controller implements ActionListener {
 
 	private View view;
-	private Mundo mundo;
+	private World world;
 
 	public Controller() {
 		view = new View(this);
-		mundo = new Mundo();
+		world = new World();
 	}
 
 	@Override
@@ -22,7 +22,7 @@ public class Controller implements ActionListener {
 		String command = e.getActionCommand();
 
 		if (command.equals(view.getWelcomePanel().getCOMMAND_SELECT_FILE())) {
-			mundo.cargarFile(view.conectarFileChooser());
+			world.uploadFile(view.conectarFileChooser());
 		}
 		if (command.equals(view.getSelectionPanel().getCOMMAND_CONFIRM())) {
 			this.manageSelectionKeyword();
@@ -36,9 +36,9 @@ public class Controller implements ActionListener {
 
 	public void manageSelectionKeyword() {
 		String[] inputs = view.getSelectionPanel().checkInputs();
-		if (mundo.getFile() != null) {
+		if (world.getFile() != null) {
 			if (inputs[0].equals("0")) {
-				view.getShowPanel().getTxtAreaShow().setText(mundo.busqueda(inputs[1], inputs[2]));
+				view.getShowPanel().getTxtAreaShow().setText(world.search(inputs[1], inputs[2]));
 				view.getSplitPane().setRightComponent(view.getShowPanel());
 			} else {
 				view.showWarningMessage(inputs[1]);

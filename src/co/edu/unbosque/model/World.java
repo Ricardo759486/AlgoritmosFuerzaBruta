@@ -5,31 +5,31 @@ import java.util.ArrayList;
 
 import javax.swing.UIManager;
 
-import co.edu.unbosque.model.persistence.Archivo;
+import co.edu.unbosque.model.persistence.FileDocument;
 
-public class Mundo {
+public class World {
 
 	private String alFile;
 	private Algorithm algorithm;
 	private File file;
-	private Archivo archivo;
+	private FileDocument fileDocument;
 	private UIManager UI = new UIManager();
 
-	public Mundo() {
+	public World() {
 		algorithm = new Algorithm();
 		file = null;
 	}
 
-	public void cargarFile(File file) {
+	public void uploadFile(File file) {
 		this.file = file;
 		if (file != null) {
-			archivo = new Archivo(file);
-			alFile = archivo.leerArchivo();
+			fileDocument = new FileDocument(file);
+			alFile = fileDocument.readFile();
 		}
 	}
 
-	public String busqueda(String clave, String algorithm) {
-		String pos = this.algorithm.cutText(alFile, clave, algorithm);
+	public String search(String key, String algorithm) {
+		String pos = this.algorithm.cutText(alFile, key, algorithm);
 		return pos;
 	}
 
@@ -76,17 +76,17 @@ public class Mundo {
 	}
 
 	/**
-	 * @return the archivo
+	 * @return the fileDocument
 	 */
-	public Archivo getArchivo() {
-		return archivo;
+	public FileDocument getFileDocument() {
+		return fileDocument;
 	}
 
 	/**
-	 * @param archivo the archivo to set
+	 * @param fileDocument the fileDocument to set
 	 */
-	public void setArchivo(Archivo archivo) {
-		this.archivo = archivo;
+	public void setFileDocument(FileDocument fileDocument) {
+		this.fileDocument = fileDocument;
 	}
 
 	/**

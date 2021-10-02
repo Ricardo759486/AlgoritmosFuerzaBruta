@@ -15,31 +15,31 @@ import java.util.Set;
 
 import javax.swing.JOptionPane;
 
-public class Archivo {
+public class FileDocument {
 
 	private File file;
 
-	public Archivo(File fileC) {
+	public FileDocument(File fileC) {
 		this.file = fileC;
 	}
 
-	public String leerArchivo() {
+	public String readFile() {
 
-		String linea = "";
-		String cadena = "";
+		String line = "";
+		String chain = "";
 
 		try {
 			FileReader fr = new FileReader(file);
 			BufferedReader br = new BufferedReader(fr);
-			linea = br.readLine();
-			while (linea != null) {
-				cadena += linea + " ";
-				linea = br.readLine();
+			line = br.readLine();
+			while (line != null) {
+				chain += line + " ";
+				line = br.readLine();
 			}
 			fr.close();
 		} catch (IOException e) {
 			return null;
 		}
-		return cadena;
+		return chain;
 	}
 }

@@ -4,47 +4,44 @@ import java.util.Iterator;
 
 public class Algorithm {
 
-	public String orKMP(String text, String clave) {
+	public String orKMP(String text, String key) {
 		String message = "";
 		int a = 0;
-		int[] next = new int[clave.length()];
-		getNext(clave, next);
+		int[] next = new int[key.length()];
+		getNext(key, next);
 		int i = 0;
-		while (Search(text, clave, next, i) != -1) {
-			message += Search(text, clave, next, i) + ",";
-			i = Search(text, clave, next, i) + 1;
-			Search(text, clave, next, i);
+		while (implementKMP(text, key, next, i) != -1) {
+			message += implementKMP(text, key, next, i) + ",";
+			i = implementKMP(text, key, next, i) + 1;
+			implementKMP(text, key, next, i);
 			a++;
 		}
 		return a + "," + message;
-
 	}
 
-	public String cutText(String text, String clave, String algorithm) {
+	public String cutText(String text, String key, String algorithm) {
 		String message = "";
 		if (algorithm.equals("KMP")) {
-			String[] array = orKMP(text, clave).split(",");
-			message = text.replace(clave, "*" + clave + "*") + "\n" + "\n" + clave + " se repite " + array[0]
-					+ " veces";
+			String[] array = orKMP(text, key).split(",");
+			message = text.replace(key, "*" + key + "*") + "\n" + "\n" + key + " se repite " + array[0] + " veces";
 		} else if (algorithm.equals("BM")) {
-			String[] array = orBM(text, clave).split(",");
-			message = text.replace(clave, "*" + clave + "*") + "\n" + "\n" + clave + " se repite " + array[0]
-					+ " veces";
+			String[] array = orBM(text, key).split(",");
+			message = text.replace(key, "*" + key + "*") + "\n" + "\n" + key + " se repite " + array[0] + " veces";
 		}
 
 		return message;
 	}
 
-	public String orBM(String text, String clave) {
+	public String orBM(String text, String key) {
 		int[] right = new int[256];
 		String message = "";
 		int a = 0;
 		int i = 0;
-		getRight(clave, right);
-		while (Search2(text, clave, right, i) != -1) {
-			message += Search2(text, clave, right, i) + ",";
-			i = Search2(text, clave, right, i) + 1;
-			Search2(text, clave, right, i);
+		getRight(key, right);
+		while (implementBM(text, key, right, i) != -1) {
+			message += implementBM(text, key, right, i) + ",";
+			i = implementBM(text, key, right, i) + 1;
+			implementBM(text, key, right, i);
 			a++;
 		}
 		return a + "," + message;
@@ -54,23 +51,23 @@ public class Algorithm {
 
 	public int[] getNext(String pat, int[] next) {
 		int N = pat.length();
-		next[0] = -1; // Condiciones iniciales siguiente [0] = - 1, siguiente [1] = 0
+		next[0] = -1;
 		int k = -1;
 		int j = 0;
 		while (j < N - 1) {
 			if (k == -1 || pat.charAt(j) == pat.charAt(k)) {
-				next[++j] = ++k; // Si es igual, salta al siguiente lugar de k al siguiente lugar de j
+				next[++j] = ++k;
 				if (pat.charAt(j) == pat.charAt(k)) {
-					next[j] = next[k]; // Si sigue igual, salta hacia adelante
+					next[j] = next[k];
 				}
 			} else {
-				k = next[k]; // Si no es igual, retrocede a k
+				k = next[k];
 			}
 		}
 		return next;
 	}
 
-	public int Search(String txt, String pat, int[] next, int i) {
+	public int implementKMP(String txt, String pat, int[] next, int i) {
 		int M = txt.length();
 		int N = pat.length();
 		int j = 0;
@@ -88,40 +85,6 @@ public class Algorithm {
 			return -1;
 	}
 
-	// ------------------------------------------------------------------------------------------------------------------------
-
-	public int kmp(String str, String tar) {
-		int[] next = getNext(tar);
-		for (int i = 0, j = 0; i < str.length(); i++) {
-			while (j > 0 && str.charAt(i) != tar.charAt(j)) {
-				j = next[j - 1];
-			}
-			if (str.charAt(i) == tar.charAt(j)) {
-				j++;
-			}
-			if (j == tar.length()) {
-				return i - j + 1;
-			}
-		}
-		return -1;
-	}
-
-	public int[] getNext(String tar) {
-		int[] next = new int[tar.length()];
-		int k = 0;
-		next[0] = 0;
-		for (int i = 1; i < next.length; i++) {
-			while (k > 0 && tar.charAt(k) != tar.charAt(i)) {
-				k = next[k - 1];
-			}
-			if (tar.charAt(k) == tar.charAt(i)) {
-				k++;
-			}
-			next[i] = k;
-		}
-		return next;
-	}
-
 	// --------------------------------------------------BM----------------------------------------------------------------------
 
 	public void getRight(String pat, int[] right) {
@@ -133,7 +96,7 @@ public class Algorithm {
 		}
 	}
 
-	public int Search2(String txt, String pat, int[] right, int i) {
+	public int implementBM(String txt, String pat, int[] right, int i) {
 		int M = txt.length();
 		int N = pat.length();
 		int skip;
