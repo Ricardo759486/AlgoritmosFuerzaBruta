@@ -29,6 +29,7 @@ public class Controller implements ActionListener {
 		if (command.equals(view.getShowPanel().getCOMMAND_BACK())) {
 			view.getSplitPane().setRightComponent(view.getSelectionPanel());
 			view.getSelectionPanel().getTxtKey().setText("");
+			view.getSelectionPanel().getComboTypeAlgorithm().setSelectedIndex(0);;
 		}
 
 	}

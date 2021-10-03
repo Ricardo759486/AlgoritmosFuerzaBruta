@@ -27,8 +27,8 @@ public class SelectionPanel extends JPanel {
 		comboTypeAlgorithm.addItem("KMP");
 		buttonConfirm = new JButton("Confirm");
 		this.add(labelTypeAlgorithm);
-		this.add(comboTypeAlgorithm);
 		this.add(txtKey);
+		this.add(comboTypeAlgorithm);
 		this.add(buttonConfirm);
 
 		buttonConfirm.setActionCommand(COMMAND_CONFIRM);

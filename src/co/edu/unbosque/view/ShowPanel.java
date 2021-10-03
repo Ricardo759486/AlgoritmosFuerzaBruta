@@ -4,6 +4,7 @@ import java.awt.GridLayout;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -13,14 +14,16 @@ public class ShowPanel extends JPanel{
 	
 	private JTextArea txtAreaShow;
 	private JButton buttonBack;
+	private JScrollPane scrollPane;
 	
 	public ShowPanel() {
 		setLayout(new GridLayout(2, 1));
 		txtAreaShow = new JTextArea();
 		buttonBack = new JButton("Back");
-		
+		scrollPane = new JScrollPane();
+		scrollPane.setViewportView(txtAreaShow);
 		buttonBack.setActionCommand(COMMAND_BACK);
-		this.add(txtAreaShow);
+		this.add(scrollPane);
 		this.add(buttonBack);
 	}
 
