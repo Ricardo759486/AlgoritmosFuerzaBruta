@@ -3,9 +3,9 @@ package co.edu.unbosque.view;
 import java.awt.BorderLayout;
 import java.io.File;
 
+
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 
 import co.edu.unbosque.controller.Controller;

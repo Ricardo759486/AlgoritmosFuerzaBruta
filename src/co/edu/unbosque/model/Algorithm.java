@@ -21,11 +21,9 @@ public class Algorithm {
 		String message = "";
 		if (algorithm.equals("KMP")) {
 			String[] array = orKMP(text, key).split(",");
-			message = text.replace(key, "********" + key + "********") ;
 			message =  key + " repeated " + array[0] + " times\n\n" +message.replace(" ", "\n");
 		} else if (algorithm.equals("BM")) {
 			String[] array = orBM(text, key).split(",");
-			message = text.replace(key, "********" + key + "********") ;
 			message =  key + " repeated " + array[0] + " times\n\n"+message.replace(" ", "\n");
 		}
 

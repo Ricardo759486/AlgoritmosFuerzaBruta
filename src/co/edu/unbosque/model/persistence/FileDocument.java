@@ -33,7 +33,7 @@ public class FileDocument {
 			BufferedReader br = new BufferedReader(fr);
 			line = br.readLine();
 			while (line != null) {
-				chain += line + " ";
+				chain += line + "\n";
 				line = br.readLine();
 			}
 			fr.close();

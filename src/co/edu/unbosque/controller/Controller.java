@@ -1,5 +1,6 @@
 package co.edu.unbosque.controller;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -29,7 +30,8 @@ public class Controller implements ActionListener {
 		if (command.equals(view.getShowPanel().getCOMMAND_BACK())) {
 			view.getSplitPane().setRightComponent(view.getSelectionPanel());
 			view.getSelectionPanel().getTxtKey().setText("");
-			view.getSelectionPanel().getComboTypeAlgorithm().setSelectedIndex(0);;
+			view.getSelectionPanel().getComboTypeAlgorithm().setSelectedIndex(0);
+			;
 		}
 
 	}
@@ -38,7 +40,11 @@ public class Controller implements ActionListener {
 		String[] inputs = view.getSelectionPanel().checkInputs();
 		if (world.getFile() != null) {
 			if (inputs[0].equals("0")) {
-				view.getShowPanel().getTxtAreaShow().setText(world.search(inputs[1], inputs[2]));
+				view.getShowPanel().getTxtAreaShow().setText(world.getAlFile());
+				view.getShowPanel().getLabelResult().setText(world.search(inputs[1], inputs[2]));
+				view.getShowPanel().getTxtAreaSearch().setText(inputs[1]);
+				String[] array = world.getAlgorithm().orBM(world.getAlFile(), inputs[1]).split(",");
+				view.getShowPanel().searchText(array, inputs[1].length());
 				view.getSplitPane().setRightComponent(view.getShowPanel());
 			} else {
 				view.showWarningMessage(inputs[1]);
