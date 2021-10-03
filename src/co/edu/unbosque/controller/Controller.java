@@ -1,6 +1,5 @@
 package co.edu.unbosque.controller;
 
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -44,7 +43,7 @@ public class Controller implements ActionListener {
 				view.showWarningMessage(inputs[1]);
 			}
 		} else {
-			view.showWarningMessage("Debe seleccionar primero el archivo .txt");
+			view.showWarningMessage("First you must select the .txt file");
 		}
 
 	}

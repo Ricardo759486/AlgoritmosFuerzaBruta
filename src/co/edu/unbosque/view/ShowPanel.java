@@ -24,25 +24,39 @@ public class ShowPanel extends JPanel{
 		this.add(buttonBack);
 	}
 
+	/**
+	 * @return the txtAreaShow
+	 */
 	public JTextArea getTxtAreaShow() {
 		return txtAreaShow;
 	}
 
-	public void setTxtAreaShoww(JTextArea txtShow) {
-		this.txtAreaShow = txtShow;
+	/**
+	 * @param txtAreaShow the txtAreaShow to set
+	 */
+	public void setTxtAreaShow(JTextArea txtAreaShow) {
+		this.txtAreaShow = txtAreaShow;
 	}
 
+	/**
+	 * @return the buttonBack
+	 */
 	public JButton getButtonBack() {
 		return buttonBack;
 	}
 
+	/**
+	 * @param buttonBack the buttonBack to set
+	 */
 	public void setButtonBack(JButton buttonBack) {
 		this.buttonBack = buttonBack;
 	}
 
+	/**
+	 * @return the cOMMAND_BACK
+	 */
 	public String getCOMMAND_BACK() {
 		return COMMAND_BACK;
 	}
-	
-	
+
 }

@@ -7,13 +7,9 @@ import javax.swing.JPanel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class WindowFileChooser extends JPanel {
+	
 	private JFileChooser jf;
 	private FileNameExtensionFilter filter;
-
-//	public static void main(String... args) {
-//		WindowFileChooser tf = new WindowFileChooser();
-//
-//	}
 
 	public WindowFileChooser() {
 		jf = new JFileChooser();
@@ -25,7 +21,7 @@ public class WindowFileChooser extends JPanel {
 	public File checkFile() {
 		File f = jf.getSelectedFile();
 		while (f == null ) {
-			this.printWarningMessage("Debe elegir un archivo en formato .txt");
+			this.printWarningMessage("You must choose a .txt file format");
 			jf.showOpenDialog(WindowFileChooser.this);
 			jf.setFileFilter(filter);
 			f = jf.getSelectedFile();
@@ -33,25 +29,36 @@ public class WindowFileChooser extends JPanel {
 		return f;
 	}
 
-	public void printWarningMessage(String m) {
-		JOptionPane.showMessageDialog(null, m, "Mensaje advertencia", JOptionPane.WARNING_MESSAGE);
+	public void printWarningMessage(String message) {
+		JOptionPane.showMessageDialog(null, message, "Warning message", JOptionPane.WARNING_MESSAGE);
 	}
 
+	/**
+	 * @return the jf
+	 */
 	public JFileChooser getJf() {
 		return jf;
 	}
 
+	/**
+	 * @param jf the jf to set
+	 */
 	public void setJf(JFileChooser jf) {
 		this.jf = jf;
 	}
 
+	/**
+	 * @return the filter
+	 */
 	public FileNameExtensionFilter getFilter() {
 		return filter;
 	}
 
+	/**
+	 * @param filter the filter to set
+	 */
 	public void setFilter(FileNameExtensionFilter filter) {
 		this.filter = filter;
 	}
-	
 	
 }

@@ -1,7 +1,5 @@
 package co.edu.unbosque.model;
 
-import java.util.Iterator;
-
 public class Algorithm {
 
 	public String orKMP(String text, String key) {
@@ -23,10 +21,10 @@ public class Algorithm {
 		String message = "";
 		if (algorithm.equals("KMP")) {
 			String[] array = orKMP(text, key).split(",");
-			message = text.replace(key, "*" + key + "*") + "\n" + "\n" + key + " se repite " + array[0] + " veces";
+			message = text.replace(key, "*" + key + "*") + "\n\n" + key + " repeated " + array[0] + " times";
 		} else if (algorithm.equals("BM")) {
 			String[] array = orBM(text, key).split(",");
-			message = text.replace(key, "*" + key + "*") + "\n" + "\n" + key + " se repite " + array[0] + " veces";
+			message = text.replace(key, "*" + key + "*") + "\n\n" + key + " repeated " + array[0] + " times";
 		}
 
 		return message;

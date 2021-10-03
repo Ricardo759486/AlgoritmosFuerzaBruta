@@ -48,50 +48,72 @@ public class View extends JFrame{
 	public File conectarFileChooser() {
 		WindowFileChooser tf = new WindowFileChooser();
 		File fileChooser=tf.checkFile();
-		this.showInformationMessage("El archivo seleccionado es: "+fileChooser.getName());
+		this.showInformationMessage("The selected file is: "+fileChooser.getName());
 		return fileChooser;
-				
 	}
 	
 	public void showWarningMessage(String message) {
-		JOptionPane.showMessageDialog(null, message, "Mensaje advertencia", JOptionPane.WARNING_MESSAGE);
+		JOptionPane.showMessageDialog(null, message, "Warning message", JOptionPane.WARNING_MESSAGE);
 	}
 	
 	public void showInformationMessage(String message) {
 		JOptionPane.showMessageDialog(null, message, "Information", JOptionPane.INFORMATION_MESSAGE);
 	}
-	
+
+	/**
+	 * @return the welcomePanel
+	 */
 	public WelcomePanel getWelcomePanel() {
 		return welcomePanel;
 	}
 
+	/**
+	 * @param welcomePanel the welcomePanel to set
+	 */
 	public void setWelcomePanel(WelcomePanel welcomePanel) {
 		this.welcomePanel = welcomePanel;
 	}
 
+	/**
+	 * @return the selectionPanel
+	 */
 	public SelectionPanel getSelectionPanel() {
 		return selectionPanel;
 	}
 
+	/**
+	 * @param selectionPanel the selectionPanel to set
+	 */
 	public void setSelectionPanel(SelectionPanel selectionPanel) {
 		this.selectionPanel = selectionPanel;
 	}
 
+	/**
+	 * @return the showPanel
+	 */
 	public ShowPanel getShowPanel() {
 		return showPanel;
 	}
 
+	/**
+	 * @param showPanel the showPanel to set
+	 */
 	public void setShowPanel(ShowPanel showPanel) {
 		this.showPanel = showPanel;
 	}
 
+	/**
+	 * @return the splitPane
+	 */
 	public JSplitPane getSplitPane() {
 		return splitPane;
 	}
 
+	/**
+	 * @param splitPane the splitPane to set
+	 */
 	public void setSplitPane(JSplitPane splitPane) {
 		this.splitPane = splitPane;
-	}
-	
+	}	
 	
 }

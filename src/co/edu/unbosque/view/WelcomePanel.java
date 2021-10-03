@@ -24,27 +24,39 @@ public class WelcomePanel extends JPanel{
 		buttonSelectFile.setActionCommand(COMMAND_SELECT_FILE);
 	}
 
-	public JButton getButtonSelectFile() {
-		return buttonSelectFile;
-		
-	}
-
-	public void setButtonSelectFile(JButton buttonSelectFile) {
-		this.buttonSelectFile = buttonSelectFile;
-	}
-
+	/**
+	 * @return the labelWelcome
+	 */
 	public JLabel getLabelWelcome() {
 		return labelWelcome;
 	}
 
+	/**
+	 * @param labelWelcome the labelWelcome to set
+	 */
 	public void setLabelWelcome(JLabel labelWelcome) {
 		this.labelWelcome = labelWelcome;
 	}
 
+	/**
+	 * @return the buttonSelectFile
+	 */
+	public JButton getButtonSelectFile() {
+		return buttonSelectFile;
+	}
+
+	/**
+	 * @param buttonSelectFile the buttonSelectFile to set
+	 */
+	public void setButtonSelectFile(JButton buttonSelectFile) {
+		this.buttonSelectFile = buttonSelectFile;
+	}
+
+	/**
+	 * @return the cOMMAND_SELECT_FILE
+	 */
 	public String getCOMMAND_SELECT_FILE() {
 		return COMMAND_SELECT_FILE;
 	}
-	
-	
 	
 }

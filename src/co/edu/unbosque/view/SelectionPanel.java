@@ -47,40 +47,68 @@ public class SelectionPanel extends JPanel {
 		return output;
 	}
 
+	/**
+	 * @return the labelTypeAlgorithm
+	 */
 	public JLabel getLabelTypeAlgorithm() {
 		return labelTypeAlgorithm;
 	}
 
+	/**
+	 * @param labelTypeAlgorithm the labelTypeAlgorithm to set
+	 */
 	public void setLabelTypeAlgorithm(JLabel labelTypeAlgorithm) {
 		this.labelTypeAlgorithm = labelTypeAlgorithm;
 	}
 
+	/**
+	 * @return the txtKey
+	 */
 	public JTextField getTxtKey() {
 		return txtKey;
 	}
 
+	/**
+	 * @param txtKey the txtKey to set
+	 */
 	public void setTxtKey(JTextField txtKey) {
 		this.txtKey = txtKey;
 	}
 
+	/**
+	 * @return the comboTypeAlgorithm
+	 */
 	public JComboBox<String> getComboTypeAlgorithm() {
 		return comboTypeAlgorithm;
 	}
 
+	/**
+	 * @param comboTypeAlgorithm the comboTypeAlgorithm to set
+	 */
 	public void setComboTypeAlgorithm(JComboBox<String> comboTypeAlgorithm) {
 		this.comboTypeAlgorithm = comboTypeAlgorithm;
 	}
 
+	/**
+	 * @return the buttonConfirm
+	 */
 	public JButton getButtonConfirm() {
 		return buttonConfirm;
 	}
 
+	/**
+	 * @param buttonConfirm the buttonConfirm to set
+	 */
 	public void setButtonConfirm(JButton buttonConfirm) {
 		this.buttonConfirm = buttonConfirm;
 	}
 
+	/**
+	 * @return the cOMMAND_CONFIRM
+	 */
 	public String getCOMMAND_CONFIRM() {
 		return COMMAND_CONFIRM;
 	}
+
 
 }
