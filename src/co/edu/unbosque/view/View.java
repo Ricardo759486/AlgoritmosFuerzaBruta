@@ -34,12 +34,12 @@ public class View extends JFrame{
 		splitPane.setRightComponent(selectionPanel);
 		splitPane.setLeftComponent(welcomePanel);
 		getContentPane().add(splitPane);
-		asignarOyentes(controller);
+		assignListeners(controller);
 		repaint();
 		revalidate();
 	}
 	
-	public void asignarOyentes(Controller controller) {
+	public void assignListeners(Controller controller) {
 		welcomePanel.getButtonSelectFile().addActionListener(controller);
 		selectionPanel.getButtonConfirm().addActionListener(controller);
 		showPanel.getButtonBack().addActionListener(controller);
