@@ -45,7 +45,7 @@ public class View extends JFrame{
 		showPanel.getButtonBack().addActionListener(controller);
 
 	}
-	public File conectarFileChooser() {
+	public File connectFileChooser() {
 		WindowFileChooser tf = new WindowFileChooser();
 		File fileChooser=tf.checkFile();
 		this.showInformationMessage("The selected file is: "+fileChooser.getName());

@@ -1,6 +1,5 @@
 package co.edu.unbosque.controller;
 
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -22,7 +21,7 @@ public class Controller implements ActionListener {
 		String command = e.getActionCommand();
 
 		if (command.equals(view.getWelcomePanel().getCOMMAND_SELECT_FILE())) {
-			world.uploadFile(view.conectarFileChooser());
+			world.uploadFile(view.connectFileChooser());
 		}
 		if (command.equals(view.getSelectionPanel().getCOMMAND_CONFIRM())) {
 			this.manageSelectionKeyword();
