@@ -3,10 +3,13 @@ package co.edu.unbosque.model.persistence;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -29,14 +32,11 @@ public class FileDocument {
 		String chain = "";
 
 		try {
-			FileReader fr = new FileReader(file);
-			BufferedReader br = new BufferedReader(fr);
-			line = br.readLine();
-			while (line != null) {
+			BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
+			while ((line = in.readLine()) != null) {
 				chain += line + "\n";
-				line = br.readLine();
 			}
-			fr.close();
+			in.close();
 		} catch (IOException e) {
 			return null;
 		}
