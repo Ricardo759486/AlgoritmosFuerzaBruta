@@ -54,7 +54,6 @@ public class ShowPanel extends JPanel {
 				hilit.addHighlight(Integer.parseInt(array[i]), Integer.parseInt(array[i]) + size, painter);
 				txtAreaShow.setCaretPosition(Integer.parseInt(array[i]) + size);
 			}
-			txtAreaSearch.setBackground(colorfondodefault);
 		} catch (BadLocationException e) {
 			e.printStackTrace();
 		}
