@@ -30,21 +30,19 @@ public class Controller implements ActionListener {
 			view.getSplitPane().setRightComponent(view.getSelectionPanel());
 			view.getSelectionPanel().getTxtKey().setText("");
 			view.getSelectionPanel().getComboTypeAlgorithm().setSelectedIndex(0);
-			;
 		}
 
 	}
 
 	public void manageSelectionKeyword() {
 		String[] inputs = view.getSelectionPanel().checkInputs();
+		String text = world.getAlFile();
 		if (world.getFile() != null) {
 			if (inputs[0].equals("0")) {
-				if(view.getSelectionPanel().getCheckSearch().isSelected() == false) {
-					String text = world.getAlFile().toLowerCase();
-					this.prueba(text, inputs[1].toLowerCase(), inputs[2].toLowerCase());
+				if(view.getSelectionPanel().getCheckSearch().isSelected() == true) {
+					this.searchFor(text, inputs[1], inputs[2]);
 				}else {
-					String text = world.getAlFile();
-					this.prueba(text, inputs[1], inputs[2]);
+					this.searchFor(text.toLowerCase(), inputs[1].toLowerCase(), inputs[2]);
 				}
 			} else {
 				view.showWarningMessage(inputs[1]);
@@ -54,23 +52,21 @@ public class Controller implements ActionListener {
 		}
 	}
 	
-	public void prueba(String text, String inputs1, String inputs2) {
+	public void searchFor(String text, String inputs1, String inputs2) {
 		
 		view.getShowPanel().getTxtAreaShow().setText(world.getAlFile());
-		view.getShowPanel().getLabelResult().setText( inputs1 + world.search(inputs1, inputs2));
+		view.getShowPanel().getLabelResult().setText( inputs1 + world.search(text, inputs1, inputs2));
 		if (inputs2.equals("BM")) {
-			String[] array = world.getAlgorithm().orBM(world.getAlFile(), inputs1)
+			String[] array = world.getAlgorithm().orBM(text, inputs1)
 					.split(",");
 			view.getShowPanel().searchText(array, inputs1.length());
 		} else if (inputs2.equals("KMP")) {
-			String[] array = world.getAlgorithm().orKMP(world.getAlFile(), inputs1)
+			String[] array = world.getAlgorithm().orKMP(text, inputs1)
 					.split(",");
 			view.getShowPanel().searchText(array, inputs1.length());
 		}
 
 		view.getSplitPane().setRightComponent(view.getShowPanel());
-		
-		
 	}
 
 }
