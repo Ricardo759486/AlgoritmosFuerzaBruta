@@ -3,6 +3,7 @@ package co.edu.unbosque.view;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -15,20 +16,23 @@ public class SelectionPanel extends JPanel {
 	private JLabel labelTypeAlgorithm;
 	private JTextField txtKey;
 	private JComboBox<String> comboTypeAlgorithm;
+	private JCheckBox checkSearch;
 	private JButton buttonConfirm;
 
 	public SelectionPanel() {
-		setLayout(new GridLayout(4, 1));
+		setLayout(new GridLayout(5, 1));
 		labelTypeAlgorithm = new JLabel("Write the word to search");
 		txtKey = new JTextField();
 		comboTypeAlgorithm = new JComboBox<String>();
 		comboTypeAlgorithm.addItem("Select algorithm");
 		comboTypeAlgorithm.addItem("BM");
 		comboTypeAlgorithm.addItem("KMP");
+		checkSearch = new JCheckBox("Precise search");
 		buttonConfirm = new JButton("Confirm");
 		this.add(labelTypeAlgorithm);
 		this.add(txtKey);
 		this.add(comboTypeAlgorithm);
+		this.add(checkSearch);
 		this.add(buttonConfirm);
 
 		buttonConfirm.setActionCommand(COMMAND_CONFIRM);
@@ -109,6 +113,21 @@ public class SelectionPanel extends JPanel {
 	public String getCOMMAND_CONFIRM() {
 		return COMMAND_CONFIRM;
 	}
+
+	/**
+	 * @return the checkSearch
+	 */
+	public JCheckBox getCheckSearch() {
+		return checkSearch;
+	}
+
+	/**
+	 * @param checkSearch the checkSearch to set
+	 */
+	public void setCheckSearch(JCheckBox checkSearch) {
+		this.checkSearch = checkSearch;
+	}
+	
 
 
 }

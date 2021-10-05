@@ -32,6 +32,11 @@ public class World {
 		String pos = this.algorithm.cutText(alFile.toLowerCase(), key, algorithm);
 		return pos;
 	}
+	
+	public String search2(String key, String algorithm) {
+		String pos = this.algorithm.cutText(alFile, key, algorithm);
+		return pos;
+	}
 
 	/**
 	 * @return the alFile

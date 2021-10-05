@@ -39,20 +39,38 @@ public class Controller implements ActionListener {
 		String[] inputs = view.getSelectionPanel().checkInputs();
 		if (world.getFile() != null) {
 			if (inputs[0].equals("0")) {
-				String text = world.getAlFile().toLowerCase();
-				view.getShowPanel().getTxtAreaShow().setText(world.getAlFile());
-				view.getShowPanel().getLabelResult().setText( inputs[1] + world.search(inputs[1].toLowerCase(), inputs[2]));
-				if (inputs[2].equals("BM")) {
-					String[] array = world.getAlgorithm().orBM(world.getAlFile().toLowerCase(), inputs[1].toLowerCase())
-							.split(",");
-					view.getShowPanel().searchText(array, inputs[1].length());
-				} else if (inputs[2].equals("KMP")) {
-					String[] array = world.getAlgorithm().orKMP(world.getAlFile().toLowerCase(), inputs[1].toLowerCase())
-							.split(",");
-					view.getShowPanel().searchText(array, inputs[1].length());
-				}
+				if(view.getSelectionPanel().getCheckSearch().isSelected() == false) {
+					String text = world.getAlFile().toLowerCase();
+					view.getShowPanel().getTxtAreaShow().setText(world.getAlFile());
+					view.getShowPanel().getLabelResult().setText( inputs[1] + world.search(inputs[1].toLowerCase(), inputs[2]));
+					if (inputs[2].equals("BM")) {
+						String[] array = world.getAlgorithm().orBM(world.getAlFile().toLowerCase(), inputs[1].toLowerCase())
+								.split(",");
+						view.getShowPanel().searchText(array, inputs[1].length());
+					} else if (inputs[2].equals("KMP")) {
+						String[] array = world.getAlgorithm().orKMP(world.getAlFile().toLowerCase(), inputs[1].toLowerCase())
+								.split(",");
+						view.getShowPanel().searchText(array, inputs[1].length());
+					}
 
-				view.getSplitPane().setRightComponent(view.getShowPanel());
+					view.getSplitPane().setRightComponent(view.getShowPanel());
+				}else {
+					String text = world.getAlFile().toLowerCase();
+					view.getShowPanel().getTxtAreaShow().setText(world.getAlFile());
+					view.getShowPanel().getLabelResult().setText( inputs[1] + world.search2(inputs[1], inputs[2]));
+					if (inputs[2].equals("BM")) {
+						String[] array = world.getAlgorithm().orBM(world.getAlFile(), inputs[1])
+								.split(",");
+						view.getShowPanel().searchText(array, inputs[1].length());
+					} else if (inputs[2].equals("KMP")) {
+						String[] array = world.getAlgorithm().orKMP(world.getAlFile(), inputs[1])
+								.split(",");
+						view.getShowPanel().searchText(array, inputs[1].length());
+					}
+
+					view.getSplitPane().setRightComponent(view.getShowPanel());
+				}
+				
 			} else {
 				view.showWarningMessage(inputs[1]);
 			}
