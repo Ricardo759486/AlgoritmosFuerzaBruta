@@ -18,33 +18,23 @@ public class ShowPanel extends JPanel {
 
 	private JLabel labelResult;
 	private JTextArea txtAreaShow;
-	private JTextArea txtAreaSearch;
-	private JButton buttonBack;
 	private JScrollPane scrollPane;
-	private Color colorfondodefault;
 	private Highlighter hilit;
 	private Highlighter.HighlightPainter painter;
 
 	public ShowPanel() {
-		setLayout(new GridLayout(3, 1));
+		setLayout(null);
 		labelResult = new JLabel();
 		txtAreaShow = new JTextArea();
-		txtAreaSearch = new JTextArea();
-		buttonBack = new JButton("Back");
 		scrollPane = new JScrollPane();
 		scrollPane.setViewportView(txtAreaShow);
-		buttonBack.setActionCommand(COMMAND_BACK);
 		hilit = new DefaultHighlighter();
 		painter = new DefaultHighlighter.DefaultHighlightPainter(new Color(150, 150, 77));
 		txtAreaShow.setHighlighter(hilit);
-		colorfondodefault = txtAreaSearch.getBackground();
+		labelResult.setBounds(0, 0, 800, 50);
+		scrollPane.setBounds(0, 40, 815, 200);
 		this.add(labelResult);
 		this.add(scrollPane);
-		this.add(buttonBack);
-	}
-
-	public void color() {
-
 	}
 
 	public void searchText(String[] array, int size) {
@@ -89,38 +79,11 @@ public class ShowPanel extends JPanel {
 	}
 
 	/**
-	 * @return the buttonBack
-	 */
-	public JButton getButtonBack() {
-		return buttonBack;
-	}
-
-	/**
-	 * @param buttonBack the buttonBack to set
-	 */
-	public void setButtonBack(JButton buttonBack) {
-		this.buttonBack = buttonBack;
-	}
-
-	/**
 	 * @return the cOMMAND_BACK
 	 */
 	public String getCOMMAND_BACK() {
 		return COMMAND_BACK;
 	}
 
-	/**
-	 * @return the txtAreaSearch
-	 */
-	public JTextArea getTxtAreaSearch() {
-		return txtAreaSearch;
-	}
-
-	/**
-	 * @param txtAreaSearch the txtAreaSearch to set
-	 */
-	public void setTxtAreaSearch(JTextArea txtAreaSearch) {
-		this.txtAreaSearch = txtAreaSearch;
-	}
 
 }

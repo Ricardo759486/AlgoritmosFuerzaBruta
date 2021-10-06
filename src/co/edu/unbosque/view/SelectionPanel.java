@@ -18,9 +18,11 @@ public class SelectionPanel extends JPanel {
 	private JComboBox<String> comboTypeAlgorithm;
 	private JCheckBox checkSearch;
 	private JButton buttonConfirm;
+	private ShowPanel showPanel;
+	private JPanel panel;
 
 	public SelectionPanel() {
-		setLayout(new GridLayout(5, 1));
+		setLayout(new GridLayout(2, 1));
 		labelTypeAlgorithm = new JLabel("Write the word to search");
 		txtKey = new JTextField();
 		comboTypeAlgorithm = new JComboBox<String>();
@@ -28,12 +30,17 @@ public class SelectionPanel extends JPanel {
 		comboTypeAlgorithm.addItem("BM");
 		comboTypeAlgorithm.addItem("KMP");
 		checkSearch = new JCheckBox("Precise search");
-		buttonConfirm = new JButton("Confirm");
-		this.add(labelTypeAlgorithm);
-		this.add(txtKey);
-		this.add(comboTypeAlgorithm);
-		this.add(checkSearch);
-		this.add(buttonConfirm);
+		buttonConfirm = new JButton("Search");
+		showPanel = new ShowPanel();
+		panel = new JPanel();
+		panel.setLayout(new GridLayout(5, 1));
+		panel.add(labelTypeAlgorithm);
+		panel.add(txtKey);
+		panel.add(comboTypeAlgorithm);
+		panel.add(checkSearch);
+		panel.add(buttonConfirm);
+		this.add(panel);
+		this.add(showPanel);
 
 		buttonConfirm.setActionCommand(COMMAND_CONFIRM);
 	}
@@ -127,7 +134,34 @@ public class SelectionPanel extends JPanel {
 	public void setCheckSearch(JCheckBox checkSearch) {
 		this.checkSearch = checkSearch;
 	}
-	
 
+	/**
+	 * @return the showPanel
+	 */
+	public ShowPanel getShowPanel() {
+		return showPanel;
+	}
+
+	/**
+	 * @param showPanel the showPanel to set
+	 */
+	public void setShowPanel(ShowPanel showPanel) {
+		this.showPanel = showPanel;
+	}
+
+	/**
+	 * @return the panel
+	 */
+	public JPanel getPanel() {
+		return panel;
+	}
+
+	/**
+	 * @param panel the panel to set
+	 */
+	public void setPanel(JPanel panel) {
+		this.panel = panel;
+	}
+	
 
 }

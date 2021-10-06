@@ -22,6 +22,7 @@ public class Controller implements ActionListener {
 
 		if (command.equals(view.getWelcomePanel().getCOMMAND_SELECT_FILE())) {
 			world.uploadFile(view.connectFileChooser());
+			view.getSelectionPanel().getShowPanel().getTxtAreaShow().setText(world.getAlFile());
 		}
 		if (command.equals(view.getSelectionPanel().getCOMMAND_CONFIRM())) {
 			this.manageSelectionKeyword();
@@ -54,19 +55,17 @@ public class Controller implements ActionListener {
 	
 	public void searchFor(String text, String inputs1, String inputs2) {
 		
-		view.getShowPanel().getTxtAreaShow().setText(world.getAlFile());
-		view.getShowPanel().getLabelResult().setText( inputs1 + world.search(text, inputs1, inputs2));
+		view.getSelectionPanel().getShowPanel().getTxtAreaShow().setText(world.getAlFile());
+		view.getSelectionPanel().getShowPanel().getLabelResult().setText( inputs1 + world.search(text, inputs1, inputs2));
 		if (inputs2.equals("BM")) {
 			String[] array = world.getAlgorithm().orBM(text, inputs1)
 					.split(",");
-			view.getShowPanel().searchText(array, inputs1.length());
+			view.getSelectionPanel().getShowPanel().searchText(array, inputs1.length());
 		} else if (inputs2.equals("KMP")) {
 			String[] array = world.getAlgorithm().orKMP(text, inputs1)
 					.split(",");
-			view.getShowPanel().searchText(array, inputs1.length());
+			view.getSelectionPanel().getShowPanel().searchText(array, inputs1.length());
 		}
-
-		view.getSplitPane().setRightComponent(view.getShowPanel());
 	}
 
 }

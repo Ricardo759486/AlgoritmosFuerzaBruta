@@ -49,8 +49,8 @@ public class View extends JFrame {
 	public View(Controller controller) {
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setLayout(new BorderLayout());
-		this.setSize(600, 300);
-		this.setTitle("Welcome");
+		this.setSize(900, 500);
+		this.setTitle("BM / KMP Program");
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
 		this.setVisible(true);
@@ -78,8 +78,6 @@ public class View extends JFrame {
 	public void assignListeners(Controller controller) {
 		welcomePanel.getButtonSelectFile().addActionListener(controller);
 		selectionPanel.getButtonConfirm().addActionListener(controller);
-		showPanel.getButtonBack().addActionListener(controller);
-
 	}
 
 	/**
