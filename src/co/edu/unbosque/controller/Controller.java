@@ -82,12 +82,14 @@ public class Controller implements ActionListener {
 			view.showWarningMessage("First you must select the .txt file");
 		}
 	}
-	
+
 	/**
+	 * This method is to find the word or letter in the text and paint that word.
 	 * 
-	 * @param text
-	 * @param inputs1
-	 * @param inputs2
+	 * @param text    is type String and is the text from the user. text != null
+	 * @param inputs1 is type String for the word to find. inputs1 != null
+	 * @param inputs2 is type String for select the algorithm. inputs2 != "Select
+	 *                algorithm"
 	 */
 	public void searchFor(String text, String inputs1, String inputs2) {
 

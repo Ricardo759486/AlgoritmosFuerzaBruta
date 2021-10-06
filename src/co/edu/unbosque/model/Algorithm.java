@@ -14,7 +14,14 @@ package co.edu.unbosque.model;
  */
 
 public class Algorithm {
-
+	/**
+	 * This method is for find by the algorithm KMP and have two parameters, one is
+	 * for the text and the word o letter that is the key
+	 * 
+	 * @param text is type String and have the text of the user. text != null
+	 * @param key  is the word or letter to find type String. key != null
+	 * @return the position with the message
+	 */
 	public String orKMP(String text, String key) {
 		String message = "";
 		int a = 0;
@@ -30,6 +37,15 @@ public class Algorithm {
 		return a + "," + message;
 	}
 
+	/**
+	 * This method cut the text to be read in search by the method that user select.
+	 * 
+	 * @param text      is type String and have the text of the user. text != null
+	 * @param key       is the word or letter to find type String. key != null
+	 * @param algorithm is a variable type String that is the algorithm selected by
+	 *                  the user. algorithm != "Select algorithm"
+	 * @return message with the times repeated in the text the word or letter
+	 */
 	public String cutText(String text, String key, String algorithm) {
 		String message = "";
 		if (algorithm.equals("KMP")) {
@@ -43,6 +59,14 @@ public class Algorithm {
 		return message;
 	}
 
+	/**
+	 * This method is for find by the algorithm KMP and have two parameters, one is
+	 * for the text and the word o letter that is the key
+	 * 
+	 * @param text is type String and have the text of the user. text != null
+	 * @param key  is the word or letter to find type String. key != null
+	 * @return the position with the message
+	 */
 	public String orBM(String text, String key) {
 		int[] right = new int[256];
 		String message = "";
@@ -60,6 +84,13 @@ public class Algorithm {
 
 	// ------------------------------------KMP-----------------------------------------------------
 
+	/**
+	 * This method will check the the next position in the text for method KMP.
+	 * 
+	 * @param pat  is type String and is for text. pat != null
+	 * @param next is an array of int and will do the positions.
+	 * @return the next position in the text.
+	 */
 	public int[] getNext(String pat, int[] next) {
 		int N = pat.length();
 		next[0] = -1;
@@ -78,6 +109,20 @@ public class Algorithm {
 		return next;
 	}
 
+	/**
+	 * This method will implement the algorithm of KMP with the text that user
+	 * entered before.
+	 * 
+	 * @param txt  is the variable type String and is the text of the user. txt !=
+	 *             null
+	 * @param pat  will be the key that is word or letter that user wants to find.
+	 *             pat != null
+	 * @param next is an array of int and will do the positions.
+	 * @param i    is the variable type int and is the position where will be
+	 *             starting find the word or letter. i >= 0
+	 * @return the position where is find it the word o letter in the text if
+	 *         there's not have any letter will be return -1 .
+	 */
 	public int implementKMP(String txt, String pat, int[] next, int i) {
 		int M = txt.length();
 		int N = pat.length();
@@ -98,6 +143,13 @@ public class Algorithm {
 
 	// --------------------------------------------------BM----------------------------------------------------------------------
 
+	/**
+	 * This method will get the position with the key that is send it in the
+	 * parameter.
+	 * 
+	 * @param pat   is type String an is the key. pat != null
+	 * @param right is an array of int and will do the positions.
+	 */
 	public void getRight(String pat, int[] right) {
 		for (int i = 0; i < 256; i++) {
 			right[i] = -1;
@@ -107,6 +159,20 @@ public class Algorithm {
 		}
 	}
 
+	/**
+	 * This method will implement the algorithm of BM with the text that user
+	 * entered before.
+	 * 
+	 * @param txt   is the variable type String and is the text of the user. txt !=
+	 *              null
+	 * @param pat   will be the key that is word or letter that user wants to find.
+	 *              pat != null
+	 * @param right is an array of int and will do the positions.
+	 * @param i     is the variable type int and is the position where will be
+	 *              starting find the word or letter. i >= 0
+	 * @return the position where is find it the word o letter in the text if
+	 *         there's not have any letter will be return -1 .
+	 */
 	public int implementBM(String txt, String pat, int[] right, int i) {
 		int M = txt.length();
 		int N = pat.length();
