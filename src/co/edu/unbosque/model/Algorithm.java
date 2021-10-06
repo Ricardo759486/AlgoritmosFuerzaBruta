@@ -1,4 +1,17 @@
+/**
+ * The package that contains this class
+ */
 package co.edu.unbosque.model;
+
+/**
+ * Class Algorithm thats for the algorithms KMP or BM for the purpose of the
+ * prgram.
+ * 
+ * @authors Jhoan Ricardo Cuevas Patinio, Robinson Jose Gutierrez Solano, Juana
+ *          Valentina Torres Parrado and Juan Felipe Rojas Rodriguez
+ * @version 1.0
+ *
+ */
 
 public class Algorithm {
 
@@ -21,10 +34,10 @@ public class Algorithm {
 		String message = "";
 		if (algorithm.equals("KMP")) {
 			String[] array = orKMP(text, key).split(",");
-			message = " repeated " + array[0] + " times\n\n" +message.replace(" ", "\n");
+			message = " repeated " + array[0] + " times\n\n" + message.replace(" ", "\n");
 		} else if (algorithm.equals("BM")) {
 			String[] array = orBM(text, key).split(",");
-			message = " repeated " + array[0] + " times\n\n"+message.replace(" ", "\n");
+			message = " repeated " + array[0] + " times\n\n" + message.replace(" ", "\n");
 		}
 
 		return message;
