@@ -28,13 +28,8 @@ public class World {
 		}
 	}
 
-	public String search(String key, String algorithm) {
-		String pos = this.algorithm.cutText(alFile.toLowerCase(), key, algorithm);
-		return pos;
-	}
-	
-	public String search2(String key, String algorithm) {
-		String pos = this.algorithm.cutText(alFile, key, algorithm);
+	public String search(String text, String key, String algorithm) {
+		String pos = this.algorithm.cutText(text, key, algorithm);
 		return pos;
 	}
 
