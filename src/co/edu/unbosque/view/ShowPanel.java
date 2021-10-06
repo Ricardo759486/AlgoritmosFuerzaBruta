@@ -25,11 +25,7 @@ import javax.swing.text.Highlighter;
  *
  */
 public class ShowPanel extends JPanel {
-	/**
-	 * Variable static COMMAND_BACK type String
-	 */
-	private final String COMMAND_BACK = "BACK";
-
+	
 	/**
 	 * Variable labelResult type JLabel
 	 */
@@ -118,11 +114,5 @@ public class ShowPanel extends JPanel {
 		this.txtAreaShow = txtAreaShow;
 	}
 
-	/**
-	 * @return the cOMMAND_BACK
-	 */
-	public String getCOMMAND_BACK() {
-		return COMMAND_BACK;
-	}
 
 }
