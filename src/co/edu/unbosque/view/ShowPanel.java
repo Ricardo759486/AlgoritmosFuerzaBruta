@@ -1,3 +1,6 @@
+/**
+ * The package that contains this class
+ */
 package co.edu.unbosque.view;
 
 import java.awt.Color;
@@ -12,16 +15,46 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.DefaultHighlighter;
 import javax.swing.text.Highlighter;
 
+/**
+ * Class ShowPanel that extends JPanel this class is a part of the window and
+ * shows the scroll bar and the text area.
+ * 
+ * @authors Jhoan Ricardo Cuevas Patinio, Robinson Jose Gutierrez Solano, Juana
+ *          Valentina Torres Parrado and Juan Felipe Rojas Rodriguez
+ * @version 1.0
+ *
+ */
 public class ShowPanel extends JPanel {
-
+	/**
+	 * Variable static COMMAND_BACK type String
+	 */
 	private final String COMMAND_BACK = "BACK";
 
+	/**
+	 * Variable labelResult type JLabel
+	 */
 	private JLabel labelResult;
+	/**
+	 * Variable txtAreaShow type JTextArea
+	 */
 	private JTextArea txtAreaShow;
+	/**
+	 * Variable scrollPane type JScrollPane
+	 */
 	private JScrollPane scrollPane;
+	/**
+	 * Variable hilit type Highlighter
+	 */
 	private Highlighter hilit;
+	/**
+	 * Variable painter type Highlighter.HighlightPainter
+	 */
 	private Highlighter.HighlightPainter painter;
 
+	/**
+	 * Constructor of the class that initialise every variable because come from
+	 * different classes and make the bounds and layouts.
+	 */
 	public ShowPanel() {
 		setLayout(null);
 		labelResult = new JLabel();
@@ -37,6 +70,14 @@ public class ShowPanel extends JPanel {
 		this.add(scrollPane);
 	}
 
+	/**
+	 * This method find in the text the letter or word the user try to find in the
+	 * text, next put a highlighter in the word or letter.
+	 * 
+	 * @param array is a parameter type String[] that is an array this can't be null
+	 *              array != null
+	 * @param size  is a type int and is used for the position in the text int >= 0
+	 */
 	public void searchText(String[] array, int size) {
 		hilit.removeAllHighlights();
 		try {
@@ -49,7 +90,6 @@ public class ShowPanel extends JPanel {
 		}
 	}
 
-	
 	/**
 	 * @return the labelResult
 	 */
@@ -84,6 +124,5 @@ public class ShowPanel extends JPanel {
 	public String getCOMMAND_BACK() {
 		return COMMAND_BACK;
 	}
-
 
 }

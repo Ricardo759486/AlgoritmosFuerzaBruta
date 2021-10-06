@@ -1,3 +1,6 @@
+/**
+ * The package that contains this class
+ */
 package co.edu.unbosque.view;
 
 import java.awt.GridLayout;
@@ -9,18 +12,57 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+/**
+ * Class SelectionPanel that extends JPanel this class contains different
+ * variables that the user can write the word or letter that want to find,
+ * select the algorithm that the user want to find what writes in the text
+ * field.
+ * 
+ * @authors Jhoan Ricardo Cuevas Patinio, Robinson Jose Gutierrez Solano, Juana
+ *          Valentina Torres Parrado and Juan Felipe Rojas Rodriguez
+ * @version 1.0
+ *
+ */
 public class SelectionPanel extends JPanel {
-
+	/**
+	 * Variable static COMMAND_CONFIRM type String
+	 */
 	private final String COMMAND_CONFIRM = "CONFIRM";
 
+	/**
+	 * Variable labelTypeAlgorithm type JLabel
+	 */
 	private JLabel labelTypeAlgorithm;
+	/**
+	 * Variable txtKey type JTextField
+	 */
 	private JTextField txtKey;
+	/**
+	 * Variable comboTypeAlgorithm type JComboBox that type list is String
+	 */
 	private JComboBox<String> comboTypeAlgorithm;
+	/**
+	 * Variable checkSearch type JCheckBox
+	 */
 	private JCheckBox checkSearch;
+	/**
+	 * Variable buttonConfirm type JButton
+	 */
 	private JButton buttonConfirm;
+	/**
+	 * Variable showPanel type ShowPanel
+	 */
 	private ShowPanel showPanel;
+	/**
+	 * Variable panel type JPanel
+	 */
 	private JPanel panel;
 
+	/**
+	 * Constructor of the class that initialise the variables and add text in the
+	 * JComboBox, then add the components in the panel and organise the window for
+	 * the view.
+	 */
 	public SelectionPanel() {
 		setLayout(new GridLayout(2, 1));
 		labelTypeAlgorithm = new JLabel("Write the word to search");
@@ -45,6 +87,12 @@ public class SelectionPanel extends JPanel {
 		buttonConfirm.setActionCommand(COMMAND_CONFIRM);
 	}
 
+	/**
+	 * This method check what the user type and select, put in the array and return
+	 * with the data in the array.
+	 * 
+	 * @return the variable output with the data and type String.
+	 */
 	public String[] checkInputs() {
 		String[] output = new String[3];
 		output[0] = "0";
@@ -162,6 +210,5 @@ public class SelectionPanel extends JPanel {
 	public void setPanel(JPanel panel) {
 		this.panel = panel;
 	}
-	
 
 }

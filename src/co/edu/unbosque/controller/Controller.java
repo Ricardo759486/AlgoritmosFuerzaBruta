@@ -1,3 +1,6 @@
+/**
+ * The package that contains this class
+ */
 package co.edu.unbosque.controller;
 
 import java.awt.event.ActionEvent;
@@ -5,7 +8,14 @@ import java.awt.event.ActionListener;
 
 import co.edu.unbosque.view.View;
 import co.edu.unbosque.model.*;
-
+/**
+ * Class Controller that implements the interface ActionListener in this class contains 
+ * 
+ * @authors Jhoan Ricardo Cuevas Patinio, Robinson Jose Gutierrez Solano, Juana
+ *          Valentina Torres Parrado and Juan Felipe Rojas Rodriguez
+ * @version 1.0
+ *
+ */
 public class Controller implements ActionListener {
 
 	private View view;
