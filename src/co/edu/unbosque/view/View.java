@@ -31,10 +31,6 @@ public class View extends JFrame {
 	 */
 	private SelectionPanel selectionPanel;
 	/**
-	 * Variable showPanel type ShowPanel
-	 */
-	private ShowPanel showPanel;
-	/**
 	 * Variable splitPanel type JSplitPane
 	 */
 	private JSplitPane splitPane;
@@ -57,7 +53,6 @@ public class View extends JFrame {
 
 		welcomePanel = new WelcomePanel();
 		selectionPanel = new SelectionPanel();
-		showPanel = new ShowPanel();
 		splitPane = new JSplitPane();
 		splitPane.setEnabled(false);
 		splitPane.setRightComponent(selectionPanel);
@@ -141,20 +136,6 @@ public class View extends JFrame {
 	 */
 	public void setSelectionPanel(SelectionPanel selectionPanel) {
 		this.selectionPanel = selectionPanel;
-	}
-
-	/**
-	 * @return the showPanel
-	 */
-	public ShowPanel getShowPanel() {
-		return showPanel;
-	}
-
-	/**
-	 * @param showPanel the showPanel to set
-	 */
-	public void setShowPanel(ShowPanel showPanel) {
-		this.showPanel = showPanel;
 	}
 
 	/**
